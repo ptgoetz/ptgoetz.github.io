@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: philadelphia | P. Taylor Goetz]]></title>
+  <link href="http://ptgoetz.github.io/blog/categories/philadelphia/atom.xml" rel="self"/>
+  <link href="http://ptgoetz.github.io/"/>
+  <updated>2013-04-30T10:30:31-04:00</updated>
+  <id>http://ptgoetz.github.io/</id>
+  <author>
+    <name><![CDATA[P. Taylor Goetz]]></name>
+    <email><![CDATA[ptgoetz@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Philadelphia Cassandra User Group]]></title>
+    <link href="http://ptgoetz.github.io/blog/2013/03/07/philadelphia-cassandra-user-group/"/>
+    <updated>2013-03-07T00:02:00-05:00</updated>
+    <id>http://ptgoetz.github.io/blog/2013/03/07/philadelphia-cassandra-user-group</id>
+    <content type="html"><![CDATA[<p>Last night we kicked off the first meeting of the <a href="http://www.meetup.com/Philadelphia-Cassandra-Users/">Philadelphia Cassandra Users Group</a> hosted at <a href="http://www.healthmarketscience.com">HMS</a>.</p>
+
+<p>We had a really good turnout, with a broad range of C* users and admins. I presented on our use of storm and cassandra at <a href="http://www.healthmarketscience.com">HMS</a>.</p>
+
+<p>Thanks to Brady Gentile from DataStax, and my HMS colleagues Alex Collautt and Brian O'Neill for making the arrangements.</p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/17067371" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
+
+]]></content>
+  </entry>
+  
+</feed>

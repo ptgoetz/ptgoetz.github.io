@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ruby | P. Taylor Goetz]]></title>
+  <link href="http://ptgoetz.github.io/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://ptgoetz.github.io/"/>
+  <updated>2013-04-30T10:30:31-04:00</updated>
+  <id>http://ptgoetz.github.io/</id>
+  <author>
+    <name><![CDATA[P. Taylor Goetz]]></name>
+    <email><![CDATA[ptgoetz@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Upgrading RVM on OSX]]></title>
+    <link href="http://ptgoetz.github.io/blog/2013/04/11/upgrading-rvm-on-osx/"/>
+    <updated>2013-04-11T01:10:00-04:00</updated>
+    <id>http://ptgoetz.github.io/blog/2013/04/11/upgrading-rvm-on-osx</id>
+    <content type="html"><![CDATA[<p>I recently had the need to install a newer version of ruby, since I hadn't updated in ages (I was on ruby-1.9.2-p290). For something I was working on I needed <code>ruby-1.9.3-rc1</code>.</p>
+
+<p>Simple right? Just run</p>
+
+<p><code>bash
+rvm install ruby-1.9.3-rc1
+</code></p>
+
+<p>Well, not so much... Running that with an old rvm install let to nothing but cryptic hurt.</p>
+
+<p>As it turns out, RVM has undergone some serious updates as well as a move to the .io TLD. I'm running OSX and using homebrew, so the first order of business was to update homebrew:</p>
+
+<p><code>
+brew update
+</code></p>
+
+<p>The next step is to install the new/latest version of RVM:</p>
+
+<p><code>
+curl -L https://get.rvm.io | bash -s stable
+</code></p>
+
+<p>That got me a bit closer, but running <code>rvm install ruby-1.9.3-rc1</code> failed, but RVM was kind enough to let me know what was missing. So the next step was:</p>
+
+<p><code>
+brew install libyaml libxml2 libxslt libksba openssl sqlite
+</code></p>
+
+<p>Even closer... but still no love. The next step was to tell RVM to take care of any dependencies it needs, including installing homebrew if necessary (https://rvm.io/rvm/autolibs/)</p>
+
+<p><code>
+rvm autolibs enable
+</code></p>
+
+<p>Success! Now I was able to install <code>ruby-1.9.3-rc1</code>, migrate the gems I had installed under <code>ruby-1.9.2-p290</code>, and tell RVM to use <code>ruby-1.9.3-rc1</code>:</p>
+
+<p><code>
+rvm install ruby-1.9.3-rc1
+rvm migrate ruby-1.9.2-p290 ruby-1.9.3-rc1
+rvm use ruby-1.9.3-rc1
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>
