@@ -4,7 +4,7 @@
   <title><![CDATA[P. Taylor Goetz]]></title>
   <link href="http://ptgoetz.github.io/atom.xml" rel="self"/>
   <link href="http://ptgoetz.github.io/"/>
-  <updated>2013-04-30T10:34:49-04:00</updated>
+  <updated>2013-04-30T10:44:50-04:00</updated>
   <id>http://ptgoetz.github.io/</id>
   <author>
     <name><![CDATA[P. Taylor Goetz]]></name>
@@ -14,11 +14,53 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Storm at NYC* Big Data Tech Day]]></title>
+    <link href="http://ptgoetz.github.io/blog/2013/04/08/storm-at-nyc-star-big-data-tech-day/"/>
+    <updated>2013-04-08T22:42:00-04:00</updated>
+    <id>http://ptgoetz.github.io/blog/2013/04/08/storm-at-nyc-star-big-data-tech-day</id>
+    <content type="html"><![CDATA[<p>I recently had the opportunity to present at <a href="http://www.datastax.com/nycassandra2013/">NYC* Big Data Tech Day</a> with <a href="http://brianoneill.blogspot.com">Brian O&#8217;Neill</a> to speak about some of the work we&#8217;ve been doing at <a href="http://www.healthmarketscience.com">HMS</a>, developing our platform for real-time Master Data Management.</p>
+
+<p>Our approach leverages <a href="http://storm-project.net">Storm</a>, <a href="http://cassandra.apache.org">Cassandra</a>, <a href="http://kafka.apache.org">Kafka</a>, and <a href="http://www.elasticsearch.org">Elastic Search</a> to gather data from thousands of data sources, and meld them together in near real time, to produce a single high quality health care practitioner database.</p>
+
+<p>Our talk was titled &#8220;A Big Data Quadfecta: Cassandra, Storm, Elastic Search and Kafka&#8221; and should resonate with any beer enthusiasts!</p>
+
+<p>Slides and video below. Unfortunately the slides are not visible in the video, but you can hopefully follow along (somewhat) with the embedded slides.</p>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/jBauMkzSgRQ" frameborder="0" allowfullscreen></iframe>
+
+
+
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/17516652" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Philadelphia Cassandra User Group]]></title>
+    <link href="http://ptgoetz.github.io/blog/2013/03/07/philadelphia-cassandra-user-group/"/>
+    <updated>2013-03-07T00:02:00-05:00</updated>
+    <id>http://ptgoetz.github.io/blog/2013/03/07/philadelphia-cassandra-user-group</id>
+    <content type="html"><![CDATA[<p>Last night we kicked off the first meeting of the <a href="http://www.meetup.com/Philadelphia-Cassandra-Users/">Philadelphia Cassandra Users Group</a> hosted at <a href="http://www.healthmarketscience.com">HMS</a>.</p>
+
+<p>We had a really good turnout, with a broad range of C* users and admins. I presented on our use of storm and cassandra at <a href="http://www.healthmarketscience.com">HMS</a>.</p>
+
+<p>Thanks to Brady Gentile from DataStax, and my HMS colleagues Alex Collautt and Brian O&#8217;Neill for making the arrangements.</p>
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/17067371" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Upgrading RVM on OSX]]></title>
-    <link href="http://ptgoetz.github.io/blog/2013/04/11/upgrading-rvm-on-osx/"/>
-    <updated>2013-04-11T01:10:00-04:00</updated>
-    <id>http://ptgoetz.github.io/blog/2013/04/11/upgrading-rvm-on-osx</id>
-    <content type="html"><![CDATA[<p>I recently had the need to install a newer version of ruby, since I hadn&#8217;t updated in ages (I was on ruby-1.9.2-p290). For something I was working on I needed <code>ruby-1.9.3-rc1</code>.</p>
+    <link href="http://ptgoetz.github.io/blog/2013/03/01/upgrading-rvm-on-osx/"/>
+    <updated>2013-03-01T01:10:00-05:00</updated>
+    <id>http://ptgoetz.github.io/blog/2013/03/01/upgrading-rvm-on-osx</id>
+    <content type="html"><![CDATA[<p>f
+I recently had the need to install a newer version of ruby, since I hadn&#8217;t updated in ages (I was on ruby-1.9.2-p290). For something I was working on I needed <code>ruby-1.9.3-rc1</code>.</p>
 
 <p>Simple right? Just run</p>
 
@@ -27,7 +69,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Well, not so much&#8230; Running that with an old rvm install let to nothing but cryptic hurt.</p>
+<p>Well, not so much&#8230; Running that with an old rvm install led to nothing but cryptic hurt.</p>
 
 <p>As it turns out, RVM has undergone some serious updates as well as a move to the .io TLD. I&#8217;m running OSX and using homebrew, so the first order of business was to update homebrew:</p>
 
@@ -68,47 +110,6 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Storm at NYC* Big Data Tech Day]]></title>
-    <link href="http://ptgoetz.github.io/blog/2013/04/08/storm-at-nyc-star-big-data-tech-day/"/>
-    <updated>2013-04-08T22:42:00-04:00</updated>
-    <id>http://ptgoetz.github.io/blog/2013/04/08/storm-at-nyc-star-big-data-tech-day</id>
-    <content type="html"><![CDATA[<p>I recently had the opportunity to present at <a href="http://www.datastax.com/nycassandra2013/">NYC* Big Data Tech Day</a> with <a href="http://brianoneill.blogspot.com">Brian O&#8217;Neill</a> to speak about some of the work we&#8217;ve been doing at <a href="http://www.healthmarketscience.com">HMS</a>, developing our platform for real-time Master Data Management.</p>
-
-<p>Our approach leverages <a href="http://storm-project.net">Storm</a>, <a href="http://cassandra.apache.org">Cassandra</a>, <a href="http://kafka.apache.org">Kafka</a>, and <a href="http://www.elasticsearch.org">Elastic Search</a> to gather data from thousands of data sources, and meld them together in near real time, to produce a single high quality health care practitioner database.</p>
-
-<p>Our talk was titled &#8220;A Big Data Quadfecta: Cassandra, Storm, Elastic Search and Kafka&#8221; and should resonate with any beer enthusiasts!</p>
-
-<p>Slides and video below. Unfortunately the slides are not visible in the video, but you can hopefully follow along (somewhat) with the embedded slides.</p>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/jBauMkzSgRQ" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<iframe src="http://www.slideshare.net/slideshow/embed_code/17516652" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
-
-
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Philadelphia Cassandra User Group]]></title>
-    <link href="http://ptgoetz.github.io/blog/2013/03/07/philadelphia-cassandra-user-group/"/>
-    <updated>2013-03-07T00:02:00-05:00</updated>
-    <id>http://ptgoetz.github.io/blog/2013/03/07/philadelphia-cassandra-user-group</id>
-    <content type="html"><![CDATA[<p>Last night we kicked off the first meeting of the <a href="http://www.meetup.com/Philadelphia-Cassandra-Users/">Philadelphia Cassandra Users Group</a> hosted at <a href="http://www.healthmarketscience.com">HMS</a>.</p>
-
-<p>We had a really good turnout, with a broad range of C* users and admins. I presented on our use of storm and cassandra at <a href="http://www.healthmarketscience.com">HMS</a>.</p>
-
-<p>Thanks to Brady Gentile from DataStax, and my HMS colleagues Alex Collautt and Brian O&#8217;Neill for making the arrangements.</p>
-
-<iframe src="http://www.slideshare.net/slideshow/embed_code/17067371" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
 
 ]]></content>
   </entry>

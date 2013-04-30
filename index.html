@@ -9,7 +9,7 @@
   <meta name="author" content="P. Taylor Goetz">
 
   
-  <meta name="description" content="I recently had the need to install a newer version of ruby, since I hadn&#8217;t updated in ages (I was on ruby-1.9.2-p290). For something I was &hellip;">
+  <meta name="description" content="I recently had the opportunity to present at NYC* Big Data Tech Day with Brian O&#8217;Neill to speak about some of the work we&#8217;ve been doing &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -78,94 +78,6 @@
     <div id="content">
       <div class="blog-index">
   
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/04/11/upgrading-rvm-on-osx/">Upgrading RVM on OSX</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-04-11T01:10:00-04:00" pubdate data-updated="true">Apr 11<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/04/11/upgrading-rvm-on-osx/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I recently had the need to install a newer version of ruby, since I hadn&#8217;t updated in ages (I was on ruby-1.9.2-p290). For something I was working on I needed <code>ruby-1.9.3-rc1</code>.</p>
-
-<p>Simple right? Just run</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rvm install ruby-1.9.3-rc1
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Well, not so much&#8230; Running that with an old rvm install let to nothing but cryptic hurt.</p>
-
-<p>As it turns out, RVM has undergone some serious updates as well as a move to the .io TLD. I&#8217;m running OSX and using homebrew, so the first order of business was to update homebrew:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>brew update
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The next step is to install the new/latest version of RVM:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -L https://get.rvm.io | bash -s stable
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>That got me a bit closer, but running <code>rvm install ruby-1.9.3-rc1</code> failed, but RVM was kind enough to let me know what was missing. So the next step was:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>brew install libyaml libxml2 libxslt libksba openssl sqlite
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Even closer&#8230; but still no love. The next step was to tell RVM to take care of any dependencies it needs, including installing homebrew if necessary (https://rvm.io/rvm/autolibs/)</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rvm autolibs <span class="nb">enable</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Success! Now I was able to install <code>ruby-1.9.3-rc1</code>, migrate the gems I had installed under <code>ruby-1.9.2-p290</code>, and tell RVM to use <code>ruby-1.9.3-rc1</code>:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rvm install ruby-1.9.3-rc1
-</span><span class='line'>rvm migrate ruby-1.9.2-p290 ruby-1.9.3-rc1
-</span><span class='line'>rvm use ruby-1.9.3-rc1
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-</div>
-  
-  
-
-
-    </article>
   
   
     <article>
@@ -266,6 +178,95 @@
 
     </article>
   
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/03/01/upgrading-rvm-on-osx/">Upgrading RVM on OSX</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-03-01T01:10:00-05:00" pubdate data-updated="true">Mar 1<span>st</span>, 2013</time>
+        
+         | <a href="/blog/2013/03/01/upgrading-rvm-on-osx/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>f
+I recently had the need to install a newer version of ruby, since I hadn&#8217;t updated in ages (I was on ruby-1.9.2-p290). For something I was working on I needed <code>ruby-1.9.3-rc1</code>.</p>
+
+<p>Simple right? Just run</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rvm install ruby-1.9.3-rc1
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Well, not so much&#8230; Running that with an old rvm install led to nothing but cryptic hurt.</p>
+
+<p>As it turns out, RVM has undergone some serious updates as well as a move to the .io TLD. I&#8217;m running OSX and using homebrew, so the first order of business was to update homebrew:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>brew update
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The next step is to install the new/latest version of RVM:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -L https://get.rvm.io | bash -s stable
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That got me a bit closer, but running <code>rvm install ruby-1.9.3-rc1</code> failed, but RVM was kind enough to let me know what was missing. So the next step was:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>brew install libyaml libxml2 libxslt libksba openssl sqlite
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Even closer&#8230; but still no love. The next step was to tell RVM to take care of any dependencies it needs, including installing homebrew if necessary (https://rvm.io/rvm/autolibs/)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rvm autolibs <span class="nb">enable</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Success! Now I was able to install <code>ruby-1.9.3-rc1</code>, migrate the gems I had installed under <code>ruby-1.9.2-p290</code>, and tell RVM to use <code>ruby-1.9.3-rc1</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rvm install ruby-1.9.3-rc1
+</span><span class='line'>rvm migrate ruby-1.9.2-p290 ruby-1.9.3-rc1
+</span><span class='line'>rvm use ruby-1.9.3-rc1
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
+  
   <div class="pagination">
     
     <a href="/blog/archives">Blog Archives</a>
@@ -279,15 +280,15 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/04/11/upgrading-rvm-on-osx/">Upgrading RVM on OSX</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/2013/04/08/storm-at-nyc-star-big-data-tech-day/">Storm at NYC* Big Data Tech Day</a>
       </li>
     
       <li class="post">
         <a href="/blog/2013/03/07/philadelphia-cassandra-user-group/">Philadelphia Cassandra User Group</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/01/upgrading-rvm-on-osx/">Upgrading RVM on OSX</a>
       </li>
     
   </ul>
