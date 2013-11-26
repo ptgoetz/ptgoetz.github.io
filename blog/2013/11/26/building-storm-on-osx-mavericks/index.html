@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>P. Taylor Goetz</title>
+  <title>Building Storm On OSX 10.9 (Mavericks) - P. Taylor Goetz</title>
   <meta name="author" content="P. Taylor Goetz">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ptgoetz.github.io">
+  <link rel="canonical" href="http://ptgoetz.github.io/blog/2013/11/26/building-storm-on-osx-mavericks">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="P. Taylor Goetz" type="application/atom+xml">
@@ -76,15 +76,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/11/26/building-storm-on-osx-mavericks/">Building Storm on OSX 10.9 (Mavericks)</a></h1>
+      <h1 class="entry-title">Building Storm on OSX 10.9 (Mavericks)</h1>
     
     
       <p class="meta">
@@ -107,7 +104,7 @@
   </header>
 
 
-  <div class="entry-content"><p>Nearly a year ago to the day, my freind and coleague Brian O&#8217;Neill <a href="http://brianoneill.blogspot.com/2012/11/compiling-storm-and-jzmq-on-mac-osx.html">blogged about building storm on OSX</a>. I had been through that pain two years ago, and largely forgot about it (once you get 0mq and JZMQ installed you&#8217;re largely in the clear). That is until today, when I had to set up a storm development environment on a new laptop&#8230;</p>
+<div class="entry-content"><p>Nearly a year ago to the day, my freind and coleague Brian O&#8217;Neill <a href="http://brianoneill.blogspot.com/2012/11/compiling-storm-and-jzmq-on-mac-osx.html">blogged about building storm on OSX</a>. I had been through that pain two years ago, and largely forgot about it (once you get 0mq and JZMQ installed you&#8217;re largely in the clear). That is until today, when I had to set up a storm development environment on a new laptop&#8230;</p>
 
 <p>Things have changed since then. Apple has released OSX 10.9 (Mavericks) and turned over development of the OSX JDK to Oracle, adding a little more salt to the wound.</p>
 
@@ -307,70 +304,16 @@
 
 <p>Hopefully this will save some future storm contributors some time Googling cryptic errors.</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/01/why-sample-code-matters/">Why Sample Code Matters</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">P. Taylor Goetz</span></span>
 
-<time datetime="2013-05-01T15:52:00-04:00" pubdate data-updated="true">May 1<span>st</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Whenever you write code samples for an API or library &#8211; or even a blog post &#8211; you should treat it as though you are writing the production guidance system for the space shuttle. Okay, that may be a little extreme, but you should at least make your best effort to ensure the code is error free and follows best practices. Why? Any bugs, vulnerabilities, anti-patterns, or cruft of any kind <strong><em>will replicate like drunken bunnies.</em></strong></p>
-
-<p><img src="/images/lots-of-bunnies.gif" title="Can't hold their liquor." alt="Bunnies" /></p>
-
-<p>In a blog post titled <a href="http://www.viva64.com/en/b/0199/">Why Windows 8 drivers are buggy</a> Andrey Karpov discusses what he found when performing static analysis on Windows 8 driver examples published by Microsoft. In short, those examples aren&#8217;t exactly stellar. But they&#8217;re just examples and aren&#8217;t that important, right? I beg to differ.</p>
-
-<p>In my opinion, the salient point of the article is best summarized in the following paragraph (emphasis mine):</p>
-
-<blockquote><p>&#8220;<del>Bugs in samples are not that critical as bugs in real-life software.</del> Nevertheless, bugs can migrate from samples to real-life projects and cause developers a lot of troubles. Even within the Windows 8 Driver Samples pack we found identical bugs. The reason is obvious: copying-and-pasting a code fragment from a nearby sample. In the same way these errors will get into real-life drivers.&#8221;</p></blockquote>
-
-<p>In fact, I would rearrange that first sentence to read: <em>&#8220;Bugs in samples will become critical bugs in real-life software.&#8221;</em></p>
-
-<p>The evils of <em>copying-and-pasting</em> aside, the truth is that developers reading your sample code will likely (perhaps blindly) trust that a given example is the right way to do things. Like it or not, when writing examples you are acting as a teacher and can&#8217;t make any assumptions about your pupils.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/04/30/storm-is-not-a-workflow-engine-or-esb/">Storm Is Not a Workflow Engine/ESB/Hadoop Replacement</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -382,218 +325,40 @@
   
 
 
-<time datetime="2013-04-30T22:38:00-04:00" pubdate data-updated="true">Apr 30<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I have come across a lot people at work, conferences and on the <a href="">Storm mailing list</a> who tend toward comparing Storm to <a href="http://en.wikipedia.org/wiki/Workflow_engine">workflow engines</a> and <a href="http://en.wikipedia.org/wiki/Enterprise_service_bus">ESB</a>s.</p>
-
-<p>In both cases such a comparison is invalid, and comparable to comparing a wrench to a hammer. Yes, you can probably drive a nail with a wrench in a pinch, but the results will be far from optimal or efficient. You&#8217;re much better off using the right tool for the job.</p>
-
-<p>At first glance, Storm has several similarities with Workflow Engines, ESBs, and Map-Reduce frameworks: It has primitives that allow you to define conditional flows, filtering, and map-reduce-type operations. But those similarities are much like those that apply to the hammer/wrench analogy.</p>
-
-<p>Instead of thinking of storm as a replacement for these technologies, think of storm as a <em>complementary</em> technology.</p>
-
-<p>Storm <a href="http://engineering.twitter.com/2011/08/storm-is-coming-more-details-and-plans.html">began</a> (<a href="http://engineering.twitter.com/2013/01/improving-twitter-search-with-real-time.html">and is still used</a>) as a framework to perform analytics computations on twitter data streams.</p>
-
-<p>Think about that for a minute. Millions of twitter users are continually posting data (there&#8217;s a reason they call it the <a href="https://blog.twitter.com/2010/enabling-rush-innovation">firehose</a>). There is no beginning. There is no end. <em>It is a constant stream of data.</em></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<time datetime="2013-11-26T16:11:00-05:00" pubdate data-updated="true">Nov 26<span>th</span>, 2013</time>
       
-  <header>
+
+
+    </p>
     
-      <h1 class="entry-title"><a href="/blog/2013/04/08/storm-at-nyc-star-big-data-tech-day/">Storm at NYC* Big Data Tech Day</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
+      <div class="sharing">
   
-
-
-<time datetime="2013-04-08T22:42:00-04:00" pubdate data-updated="true">Apr 8<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I recently had the opportunity to present at <a href="http://www.datastax.com/nycassandra2013/">NYC* Big Data Tech Day</a> with <a href="http://brianoneill.blogspot.com">Brian O&#8217;Neill</a> to speak about some of the work we&#8217;ve been doing at <a href="http://www.healthmarketscience.com">HMS</a>, developing our platform for real-time Master Data Management.</p>
-
-<p>Our approach leverages <a href="http://storm-project.net">Storm</a>, <a href="http://cassandra.apache.org">Cassandra</a>, <a href="http://kafka.apache.org">Kafka</a>, and <a href="http://www.elasticsearch.org">Elastic Search</a> to gather data from thousands of data sources, and meld them together in near real time, to produce a single high quality health care practitioner database.</p>
-
-<p>Our talk was titled &#8220;A Big Data Quadfecta: Cassandra, Storm, Elastic Search and Kafka&#8221; and should resonate with any beer enthusiasts!</p>
-
-<p>Slides and video below. Unfortunately the slides are not visible in the video, but you can hopefully follow along (somewhat) with the embedded slides.</p>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/jBauMkzSgRQ" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<iframe src="http://www.slideshare.net/slideshow/embed_code/17516652" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
-
-
-
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ptgoetz.github.io/blog/2013/11/26/building-storm-on-osx-mavericks/" data-via="ptgoetz" data-counturl="http://ptgoetz.github.io/blog/2013/11/26/building-storm-on-osx-mavericks/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
 </div>
-  
-  
 
-
-    </article>
-  
-  
-    <article>
+    
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/03/07/philadelphia-cassandra-user-group/">Philadelphia Cassandra User Group</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-07T00:02:00-05:00" pubdate data-updated="true">Mar 7<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Last night we kicked off the first meeting of the <a href="http://www.meetup.com/Philadelphia-Cassandra-Users/">Philadelphia Cassandra Users Group</a> hosted at <a href="http://www.healthmarketscience.com">HMS</a>.</p>
-
-<p>We had a really good turnout, with a broad range of C* users and admins. I presented on our use of storm and cassandra at <a href="http://www.healthmarketscience.com">HMS</a>.</p>
-
-<p>Thanks to Brady Gentile from DataStax, and my HMS colleagues Alex Collautt and Brian O&#8217;Neill for making the arrangements.</p>
-
-<iframe src="http://www.slideshare.net/slideshow/embed_code/17067371" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+        <a class="basic-alignment left" href="/blog/2013/05/01/why-sample-code-matters/" title="Previous Post: Why Sample Code Matters">&laquo; Why Sample Code Matters</a>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/03/01/upgrading-rvm-on-osx/">Upgrading RVM on OSX</a></h1>
-    
-    
-      <p class="meta">
-        
+      
+    </p>
+  </footer>
+</article>
 
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-03-01T01:10:00-05:00" pubdate data-updated="true">Mar 1<span>st</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I recently had the need to install a newer version of ruby, since I hadn&#8217;t updated in ages (I was on ruby-1.9.2-p290). For something I was working on I needed <code>ruby-1.9.3-rc1</code>.</p>
-
-<p>Simple right? Just run</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rvm install ruby-1.9.3-rc1
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Well, not so much&#8230; Running that with an old rvm install led to nothing but cryptic hurt.</p>
-
-<p>As it turns out, RVM has undergone some serious updates as well as a move to the .io TLD. I&#8217;m running OSX and using homebrew, so the first order of business was to update homebrew:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>brew update
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The next step is to install the new/latest version of RVM:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>curl -L https://get.rvm.io | bash -s stable
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>That got me a bit closer, but running <code>rvm install ruby-1.9.3-rc1</code> failed, but RVM was kind enough to let me know what was missing. So the next step was:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>brew install libyaml libxml2 libxslt libksba openssl sqlite
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Even closer&#8230; but still no love. The next step was to tell RVM to take care of any dependencies it needs, including installing homebrew if necessary (https://rvm.io/rvm/autolibs/)</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rvm autolibs <span class="nb">enable</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Success! Now I was able to install <code>ruby-1.9.3-rc1</code>, migrate the gems I had installed under <code>ruby-1.9.2-p290</code>, and tell RVM to use <code>ruby-1.9.3-rc1</code>:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rvm install ruby-1.9.3-rc1
-</span><span class='line'>rvm migrate ruby-1.9.2-p290 ruby-1.9.3-rc1
-</span><span class='line'>rvm use ruby-1.9.3-rc1
-</span></code></pre></td></tr></table></div></figure>
-
-
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
-  
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -669,6 +434,7 @@
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -683,7 +449,10 @@
       var disqus_shortname = 'ptgoetzgithub';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ptgoetz.github.io/blog/2013/11/26/building-storm-on-osx-mavericks/';
+        var disqus_url = 'http://ptgoetz.github.io/blog/2013/11/26/building-storm-on-osx-mavericks/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

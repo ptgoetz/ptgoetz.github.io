@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | P. Taylor Goetz]]></title>
   <link href="http://ptgoetz.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://ptgoetz.github.io/"/>
-  <updated>2013-04-30T16:52:02-04:00</updated>
+  <updated>2013-11-26T18:59:04-05:00</updated>
   <id>http://ptgoetz.github.io/</id>
   <author>
     <name><![CDATA[P. Taylor Goetz]]></name>
@@ -18,8 +18,7 @@
     <link href="http://ptgoetz.github.io/blog/2013/03/01/upgrading-rvm-on-osx/"/>
     <updated>2013-03-01T01:10:00-05:00</updated>
     <id>http://ptgoetz.github.io/blog/2013/03/01/upgrading-rvm-on-osx</id>
-    <content type="html"><![CDATA[<p>f
-I recently had the need to install a newer version of ruby, since I hadn't updated in ages (I was on ruby-1.9.2-p290). For something I was working on I needed <code>ruby-1.9.3-rc1</code>.</p>
+    <content type="html"><![CDATA[<p>I recently had the need to install a newer version of ruby, since I hadn't updated in ages (I was on ruby-1.9.2-p290). For something I was working on I needed <code>ruby-1.9.3-rc1</code>.</p>
 
 <p>Simple right? Just run</p>
 

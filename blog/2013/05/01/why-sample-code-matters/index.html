@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Philadelphia Cassandra User Group - P. Taylor Goetz</title>
+  <title>Why Sample Code Matters - P. Taylor Goetz</title>
   <meta name="author" content="P. Taylor Goetz">
 
   
-  <meta name="description" content="Last night we kicked off the first meeting of the Philadelphia Cassandra Users Group hosted at HMS. We had a really good turnout, with a broad range &hellip;">
+  <meta name="description" content="Whenever you write code samples for an API or library &#8211; or even a blog post &#8211; you should treat it as though you are writing the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ptgoetz.github.io/blog/2013/03/07/philadelphia-cassandra-user-group">
+  <link rel="canonical" href="http://ptgoetz.github.io/blog/2013/05/01/why-sample-code-matters">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="P. Taylor Goetz" type="application/atom+xml">
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">Philadelphia Cassandra User Group</h1>
+      <h1 class="entry-title">Why Sample Code Matters</h1>
     
     
       <p class="meta">
@@ -97,21 +97,26 @@
   
 
 
-<time datetime="2013-03-07T00:02:00-05:00" pubdate data-updated="true">Mar 7<span>th</span>, 2013</time>
+<time datetime="2013-05-01T15:52:00-04:00" pubdate data-updated="true">May 1<span>st</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Last night we kicked off the first meeting of the <a href="http://www.meetup.com/Philadelphia-Cassandra-Users/">Philadelphia Cassandra Users Group</a> hosted at <a href="http://www.healthmarketscience.com">HMS</a>.</p>
+<div class="entry-content"><p>Whenever you write code samples for an API or library &#8211; or even a blog post &#8211; you should treat it as though you are writing the production guidance system for the space shuttle. Okay, that may be a little extreme, but you should at least make your best effort to ensure the code is error free and follows best practices. Why? Any bugs, vulnerabilities, anti-patterns, or cruft of any kind <strong><em>will replicate like drunken bunnies.</em></strong></p>
 
-<p>We had a really good turnout, with a broad range of C* users and admins. I presented on our use of storm and cassandra at <a href="http://www.healthmarketscience.com">HMS</a>.</p>
+<p><img src="/images/lots-of-bunnies.gif" title="Can't hold their liquor." alt="Bunnies" /></p>
 
-<p>Thanks to Brady Gentile from DataStax, and my HMS colleagues Alex Collautt and Brian O&#8217;Neill for making the arrangements.</p>
+<p>In a blog post titled <a href="http://www.viva64.com/en/b/0199/">Why Windows 8 drivers are buggy</a> Andrey Karpov discusses what he found when performing static analysis on Windows 8 driver examples published by Microsoft. In short, those examples aren&#8217;t exactly stellar. But they&#8217;re just examples and aren&#8217;t that important, right? I beg to differ.</p>
 
-<iframe src="http://www.slideshare.net/slideshow/embed_code/17067371" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
+<p>In my opinion, the salient point of the article is best summarized in the following paragraph (emphasis mine):</p>
 
+<blockquote><p>&#8220;<del>Bugs in samples are not that critical as bugs in real-life software.</del> Nevertheless, bugs can migrate from samples to real-life projects and cause developers a lot of troubles. Even within the Windows 8 Driver Samples pack we found identical bugs. The reason is obvious: copying-and-pasting a code fragment from a nearby sample. In the same way these errors will get into real-life drivers.&#8221;</p></blockquote>
+
+<p>In fact, I would rearrange that first sentence to read: <em>&#8220;Bugs in samples will become critical bugs in real-life software.&#8221;</em></p>
+
+<p>The evils of <em>copying-and-pasting</em> aside, the truth is that developers reading your sample code will likely (perhaps blindly) trust that a given example is the right way to do things. Like it or not, when writing examples you are acting as a teacher and can&#8217;t make any assumptions about your pupils.</p>
 </div>
 
 
@@ -134,12 +139,12 @@
   
 
 
-<time datetime="2013-03-07T00:02:00-05:00" pubdate data-updated="true">Mar 7<span>th</span>, 2013</time>
+<time datetime="2013-05-01T15:52:00-04:00" pubdate data-updated="true">May 1<span>st</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/cassandra/'>cassandra</a>, <a class='category' href='/blog/categories/health-market-science/'>health market science</a>, <a class='category' href='/blog/categories/philadelphia/'>philadelphia</a>, <a class='category' href='/blog/categories/storm/'>storm</a>
+    <a class='category' href='/blog/categories/design/'>design</a>, <a class='category' href='/blog/categories/programming/'>programming</a>
   
 </span>
 
@@ -148,7 +153,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ptgoetz.github.io/blog/2013/03/07/philadelphia-cassandra-user-group/" data-via="ptgoetz" data-counturl="http://ptgoetz.github.io/blog/2013/03/07/philadelphia-cassandra-user-group/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ptgoetz.github.io/blog/2013/05/01/why-sample-code-matters/" data-via="ptgoetz" data-counturl="http://ptgoetz.github.io/blog/2013/05/01/why-sample-code-matters/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -159,10 +164,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/03/01/upgrading-rvm-on-osx/" title="Previous Post: Upgrading RVM on OSX">&laquo; Upgrading RVM on OSX</a>
+        <a class="basic-alignment left" href="/blog/2013/04/30/storm-is-not-a-workflow-engine-or-esb/" title="Previous Post: Storm is not a Workflow Engine/ESB/Hadoop replacement">&laquo; Storm is not a Workflow Engine/ESB/Hadoop replacement</a>
       
       
-        <a class="basic-alignment right" href="/blog/2013/04/08/storm-at-nyc-star-big-data-tech-day/" title="Next Post: Storm at NYC* Big Data Tech Day">Storm at NYC* Big Data Tech Day &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2013/11/26/building-storm-on-osx-mavericks/" title="Next Post: Building Storm On OSX 10.9 (Mavericks)">Building Storm On OSX 10.9 (Mavericks) &raquo;</a>
       
     </p>
   </footer>
@@ -267,8 +272,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ptgoetz.github.io/blog/2013/03/07/philadelphia-cassandra-user-group/';
-        var disqus_url = 'http://ptgoetz.github.io/blog/2013/03/07/philadelphia-cassandra-user-group/';
+        var disqus_identifier = 'http://ptgoetz.github.io/blog/2013/05/01/why-sample-code-matters/';
+        var disqus_url = 'http://ptgoetz.github.io/blog/2013/05/01/why-sample-code-matters/';
         var disqus_script = 'embed.js';
       
     (function () {

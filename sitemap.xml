@@ -2,7 +2,7 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://ptgoetz.github.io/blog/2013/03/01/upgrading-rvm-on-osx/</loc>
-        <lastmod>2013-04-30T11:57:32-04:00</lastmod>
+        <lastmod>2013-05-03T17:11:44-04:00</lastmod>
     </url>
     <url>
         <loc>http://ptgoetz.github.io/blog/2013/03/07/philadelphia-cassandra-user-group/</loc>
@@ -13,12 +13,24 @@
         <lastmod>2013-04-29T23:48:58-04:00</lastmod>
     </url>
     <url>
+        <loc>http://ptgoetz.github.io/blog/2013/04/30/storm-is-not-a-workflow-engine-or-esb/</loc>
+        <lastmod>2013-05-02T13:46:51-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ptgoetz.github.io/blog/2013/05/01/why-sample-code-matters/</loc>
+        <lastmod>2013-05-01T17:28:44-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ptgoetz.github.io/blog/2013/11/26/building-storm-on-osx-mavericks/</loc>
+        <lastmod>2013-11-26T18:02:03-05:00</lastmod>
+    </url>
+    <url>
         <loc>http://ptgoetz.github.io/blog/archives/</loc>
-        <lastmod>2013-04-30T11:57:32-04:00</lastmod>
+        <lastmod>2013-11-26T18:02:03-05:00</lastmod>
     </url>
     <url>
         <loc>http://ptgoetz.github.io/</loc>
-        <lastmod>2013-04-30T11:57:32-04:00</lastmod>
+        <lastmod>2013-11-26T18:02:03-05:00</lastmod>
     </url>
     <url>
         <loc>http://ptgoetz.github.io/robots.txt</loc>

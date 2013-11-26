@@ -4,7 +4,7 @@
   <title><![CDATA[P. Taylor Goetz]]></title>
   <link href="http://ptgoetz.github.io/atom.xml" rel="self"/>
   <link href="http://ptgoetz.github.io/"/>
-  <updated>2013-04-30T16:52:02-04:00</updated>
+  <updated>2013-11-26T18:59:04-05:00</updated>
   <id>http://ptgoetz.github.io/</id>
   <author>
     <name><![CDATA[P. Taylor Goetz]]></name>
@@ -12,6 +12,253 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Building Storm On OSX 10.9 (Mavericks)]]></title>
+    <link href="http://ptgoetz.github.io/blog/2013/11/26/building-storm-on-osx-mavericks/"/>
+    <updated>2013-11-26T16:11:00-05:00</updated>
+    <id>http://ptgoetz.github.io/blog/2013/11/26/building-storm-on-osx-mavericks</id>
+    <content type="html"><![CDATA[<p>Nearly a year ago to the day, my freind and coleague Brian O&#8217;Neill <a href="http://brianoneill.blogspot.com/2012/11/compiling-storm-and-jzmq-on-mac-osx.html">blogged about building storm on OSX</a>. I had been through that pain two years ago, and largely forgot about it (once you get 0mq and JZMQ installed you&#8217;re largely in the clear). That is until today, when I had to set up a storm development environment on a new laptop&#8230;</p>
+
+<p>Things have changed since then. Apple has released OSX 10.9 (Mavericks) and turned over development of the OSX JDK to Oracle, adding a little more salt to the wound.</p>
+
+<p>Hopefully this will spare a few others from that pain.</p>
+
+<h3>JDK 6/7</h3>
+
+<p>On a fresh install of OSX 10.9 (no JDK installed), when you <code>java -version</code> from the command line you will get a prompt to <a href="http://www.java.com/en/download/index.jsp">download Java 7 from Oracle</a>. But what if you need JDK 6?</p>
+
+<p>Some Java applications can trigger the install of JDK 6 via software update. In my case it was Intellij IDEA. But one utility that Apple added to OSX was the  <code>/usr/libexec/java_home</code> executable, which will output a path suitable for use as <code>JAVA_HOME</code> value. Without arguments, it will output the path for the default JDK:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ export JAVA_HOME=$(/usr/libexec/java_home)
+</span><span class='line'>$ echo $JAVA_HOME
+</span><span class='line'>/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home
+</span><span class='line'>$ java -version
+</span><span class='line'>java version "1.7.0_45"
+</span><span class='line'>Java(TM) SE Runtime Environment (build 1.7.0_45-b18)
+</span><span class='line'>Java HotSpot(TM) 64-Bit Server VM (build 24.45-b08, mixed mode)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can also specify a certain version (running this <em>should</em> trigger an install of JDK 6 via software update &#8211; I&#8217;m not sure because Intellij had already triggered it in my situation):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ export JAVA_HOME=$(/usr/libexec/java_home -v1.6)
+</span><span class='line'>$ echo $JAVA_HOME
+</span><span class='line'>/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+</span><span class='line'>$ java -version
+</span><span class='line'>java version "1.6.0_65"
+</span><span class='line'>Java(TM) SE Runtime Environment (build 1.6.0_65-b14-462-11M4609)
+</span><span class='line'>Java HotSpot(TM) 64-Bit Server VM (build 20.65-b04-462, mixed mode)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So now we have a way to easily switch between JDK 6 and 7.</p>
+
+<p>If you need to download Java 6 manually, there is a <code>.dmg</code> file <a href="http://support.apple.com/kb/DL1572">available from Apple</a>.</p>
+
+<h3>Install Xcode and Command Line Tools</h3>
+
+<p>Xcode is easy to install via the App Store. You will also need the command line tools for compiling various things. You can trigger the install of the command line tools by invoking one of the stubs of the tools included, e.g.:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/usr/bin/strings</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Install <a href="http://brew.sh/">Homebrew</a></h3>
+
+<p>Homebrew is like a package manager for OSX that handles download, compilation, and installation of various tools and libraries. We will use it later to install dependencies.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go/install)"
+</span><span class='line'>brew doctor</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If the <code>brew doctor</code> command completes without error, you&#8217;re ready to move on.</p>
+
+<h3>Install 0mq</h3>
+
+<p>The <a href="https://github.com/nathanmarz/storm/wiki/Setting-up-a-Storm-cluster">Storm documentation</a> recommends using 0mq version 2.1.7, however I&#8217;ve found that 2.1.7 will not build on OS X 10.9 (Mavericks). The closest version I&#8217;ve found that will build under Mavericks is 2.1.9.</p>
+
+<p>The new/preferred method is to use <code>brew tap homebrew/versions</code>, however that repository does not have 0mq 2.1.9. The fallback method is to use the <code>brew versions</code> command to find and checkout a specific version:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>brew versions zeromq
+</span><span class='line'>cd /usr/local
+</span><span class='line'>git checkout 381c97f Library/Formula/zeromq.rb
+</span><span class='line'>brew install zeromq</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Install JZMQ (Java bindings for 0mq)</h3>
+
+<p>Compiling and instlling JZMQ is where most of pain comes in, and most of the errors that come out of the build process are cryptic.</p>
+
+<p>Follow the steps below exactly and you should be spared that pain:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone https://github.com/nathanmarz/jzmq.git
+</span><span class='line'>
+</span><span class='line'>brew install pkg-config
+</span><span class='line'>brew install automake
+</span><span class='line'>brew install libtool
+</span><span class='line'>
+</span><span class='line'>export JAVA_HOME=$(/usr/libexec/java_home -v1.6)
+</span><span class='line'>sudo ln -s /System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers/ /Library/Java/Home/include
+</span><span class='line'>
+</span><span class='line'>cd jzmq
+</span><span class='line'>./autogen.sh
+</span><span class='line'>./configure
+</span><span class='line'>touch src/classdist_noinst.stamp
+</span><span class='line'>cd src
+</span><span class='line'>javac -d . org/zeromq/*.java
+</span><span class='line'>cd ../
+</span><span class='line'>make
+</span><span class='line'>sudo make install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>pkg-config</code>, <code>automake</code>, and <code>libtool</code> are dependencies of the JZMQ build process. After installing those, we switch to JDK 6. Next we symlink the JDK 6 header directory where the JZMQ build process will be able to find it. Without it you will get an error like:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cannot find jni_md.h in /Library/Java/Home/include</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>touch src/classdist_noinst.stamp</code> command prevents the following error:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>No rule to make target `classdist_noinst.stamp'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Next, we manually compile the JZMQ java sources. Without that step, you will get the following error:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>error: cannot access org.zeromq.ZMQ
+</span><span class='line'>class file for org.zeromq.ZMQ not found
+</span><span class='line'>javadoc: error - Class org.zeromq.ZMQ not found.
+</span><span class='line'>Error: No classes were specified on the command line.  Try -help.
+</span><span class='line'>make[1]: *** [org_zeromq_ZMQ.h] Error 15
+</span><span class='line'>make: *** [all-recursive] Error 1</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Finally, we compile and install JZMQ.</p>
+
+<h3>Install <a href="http://leiningen.org/">Leiningen</a></h3>
+
+<p>Leiningen is the build tool used by storm. It is similar to Maven and Gradle, but much more suited to clojure development.</p>
+
+<p>Installing Leiningen is just a matter of downloading the script and making it executable:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl https://raw.github.com/technomancy/leiningen/stable/bin/lein -o ~/bin/lein
+</span><span class='line'>chmod +x ~/bin/lein</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The above commands assume you have a <code>~/bin</code> directory and it is added to your <code>PATH</code>. The easiest way to do that is in a <code>.bash_profile</code> file:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir ~/bin
+</span><span class='line'>echo PATH=\$PATH:~/bin &gt;&gt; ~/.bash_profile</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Build Storm</h3>
+
+<p>Now we&#8217;re finally ready to build storm:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone https://github.com/nathanmarz/storm.git
+</span><span class='line'>cd storm
+</span><span class='line'>lein sub install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will build and install the storm jars so they can be used as dependencies in other Leiningen/Maven/Gradle/etc. projects. If you want to create a distribution ZIP archive, run the following script:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sh ./bin/build_release.sh</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Hopefully this will save some future storm contributors some time Googling cryptic errors.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Why Sample Code Matters]]></title>
+    <link href="http://ptgoetz.github.io/blog/2013/05/01/why-sample-code-matters/"/>
+    <updated>2013-05-01T15:52:00-04:00</updated>
+    <id>http://ptgoetz.github.io/blog/2013/05/01/why-sample-code-matters</id>
+    <content type="html"><![CDATA[<p>Whenever you write code samples for an API or library &#8211; or even a blog post &#8211; you should treat it as though you are writing the production guidance system for the space shuttle. Okay, that may be a little extreme, but you should at least make your best effort to ensure the code is error free and follows best practices. Why? Any bugs, vulnerabilities, anti-patterns, or cruft of any kind <strong><em>will replicate like drunken bunnies.</em></strong></p>
+
+<p><img src="http://ptgoetz.github.io/images/lots-of-bunnies.gif" title="Can't hold their liquor." alt="Bunnies" /></p>
+
+<p>In a blog post titled <a href="http://www.viva64.com/en/b/0199/">Why Windows 8 drivers are buggy</a> Andrey Karpov discusses what he found when performing static analysis on Windows 8 driver examples published by Microsoft. In short, those examples aren&#8217;t exactly stellar. But they&#8217;re just examples and aren&#8217;t that important, right? I beg to differ.</p>
+
+<p>In my opinion, the salient point of the article is best summarized in the following paragraph (emphasis mine):</p>
+
+<blockquote><p>&#8220;<del>Bugs in samples are not that critical as bugs in real-life software.</del> Nevertheless, bugs can migrate from samples to real-life projects and cause developers a lot of troubles. Even within the Windows 8 Driver Samples pack we found identical bugs. The reason is obvious: copying-and-pasting a code fragment from a nearby sample. In the same way these errors will get into real-life drivers.&#8221;</p></blockquote>
+
+<p>In fact, I would rearrange that first sentence to read: <em>&#8220;Bugs in samples will become critical bugs in real-life software.&#8221;</em></p>
+
+<p>The evils of <em>copying-and-pasting</em> aside, the truth is that developers reading your sample code will likely (perhaps blindly) trust that a given example is the right way to do things. Like it or not, when writing examples you are acting as a teacher and can&#8217;t make any assumptions about your pupils.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Storm is not a Workflow Engine/ESB/Hadoop replacement]]></title>
+    <link href="http://ptgoetz.github.io/blog/2013/04/30/storm-is-not-a-workflow-engine-or-esb/"/>
+    <updated>2013-04-30T22:38:00-04:00</updated>
+    <id>http://ptgoetz.github.io/blog/2013/04/30/storm-is-not-a-workflow-engine-or-esb</id>
+    <content type="html"><![CDATA[<p>I have come across a lot people at work, conferences and on the <a href="">Storm mailing list</a> who tend toward comparing Storm to <a href="http://en.wikipedia.org/wiki/Workflow_engine">workflow engines</a> and <a href="http://en.wikipedia.org/wiki/Enterprise_service_bus">ESB</a>s.</p>
+
+<p>In both cases such a comparison is invalid, and comparable to comparing a wrench to a hammer. Yes, you can probably drive a nail with a wrench in a pinch, but the results will be far from optimal or efficient. You&#8217;re much better off using the right tool for the job.</p>
+
+<p>At first glance, Storm has several similarities with Workflow Engines, ESBs, and Map-Reduce frameworks: It has primitives that allow you to define conditional flows, filtering, and map-reduce-type operations. But those similarities are much like those that apply to the hammer/wrench analogy.</p>
+
+<p>Instead of thinking of storm as a replacement for these technologies, think of storm as a <em>complementary</em> technology.</p>
+
+<p>Storm <a href="http://engineering.twitter.com/2011/08/storm-is-coming-more-details-and-plans.html">began</a> (<a href="http://engineering.twitter.com/2013/01/improving-twitter-search-with-real-time.html">and is still used</a>) as a framework to perform analytics computations on twitter data streams.</p>
+
+<p>Think about that for a minute. Millions of twitter users are continually posting data (there&#8217;s a reason they call it the <a href="https://blog.twitter.com/2010/enabling-rush-innovation">firehose</a>). There is no beginning. There is no end. <em>It is a constant stream of data.</em></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Storm at NYC* Big Data Tech Day]]></title>
@@ -59,8 +306,7 @@
     <link href="http://ptgoetz.github.io/blog/2013/03/01/upgrading-rvm-on-osx/"/>
     <updated>2013-03-01T01:10:00-05:00</updated>
     <id>http://ptgoetz.github.io/blog/2013/03/01/upgrading-rvm-on-osx</id>
-    <content type="html"><![CDATA[<p>f
-I recently had the need to install a newer version of ruby, since I hadn&#8217;t updated in ages (I was on ruby-1.9.2-p290). For something I was working on I needed <code>ruby-1.9.3-rc1</code>.</p>
+    <content type="html"><![CDATA[<p>I recently had the need to install a newer version of ruby, since I hadn&#8217;t updated in ages (I was on ruby-1.9.2-p290). For something I was working on I needed <code>ruby-1.9.3-rc1</code>.</p>
 
 <p>Simple right? Just run</p>
 
