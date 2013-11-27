@@ -318,6 +318,60 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2013/05/01/why-sample-code-matters/">Why Sample Code Matters</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-05-01T15:52:00-04:00" pubdate data-updated="true">May 1<span>st</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Whenever you write code samples for an API or library &#8211; or even a blog post &#8211; you should treat it as though you are writing the production guidance system for the space shuttle. Okay, that may be a little extreme, but you should at least make your best effort to ensure the code is error free and follows best practices. Why? Any bugs, vulnerabilities, anti-patterns, or cruft of any kind <strong><em>will replicate like drunken bunnies.</em></strong></p>
+
+<p><img src="/images/lots-of-bunnies.gif" title="Can't hold their liquor." alt="Bunnies" /></p>
+
+<p>In a blog post titled <a href="http://www.viva64.com/en/b/0199/">Why Windows 8 drivers are buggy</a> Andrey Karpov discusses what he found when performing static analysis on Windows 8 driver examples published by Microsoft. In short, those examples aren&#8217;t exactly stellar. But they&#8217;re just examples and aren&#8217;t that important, right? I beg to differ.</p>
+
+<p>In my opinion, the salient point of the article is best summarized in the following paragraph (emphasis mine):</p>
+
+<blockquote><p>&#8220;<del>Bugs in samples are not that critical as bugs in real-life software.</del> Nevertheless, bugs can migrate from samples to real-life projects and cause developers a lot of troubles. Even within the Windows 8 Driver Samples pack we found identical bugs. The reason is obvious: copying-and-pasting a code fragment from a nearby sample. In the same way these errors will get into real-life drivers.&#8221;</p></blockquote>
+
+<p>In fact, I would rearrange that first sentence to read: <em>&#8220;Bugs in samples will become critical bugs in real-life software.&#8221;</em></p>
+
+<p>The evils of <em>copying-and-pasting</em> aside, the truth is that developers reading your sample code will likely (perhaps blindly) trust that a given example is the right way to do things. Like it or not, when writing examples you are acting as a teacher and can&#8217;t make any assumptions about your pupils.</p>
+
+<p>To illustrate how sample code can proliferate, consider <a href="https://github.com/nathanmarz/storm-starter/commit/91550313b5288e9c059165e6ce8bad180fb764cb#diff-e9057e0def4e5aa863bdc4a6fdb98fe3R42">this commit</a> to the <a href="">storm-starter project</a>. That was from two years ago, shortly after storm had been open-sourced. The impetus was to help people more familiar with java/Maven than clojure/Leiningen get started with storm. Since then, that code/comment has proliferated fairly far and wide, as can be seen from a <a href="https://www.google.com/#filter=0&amp;q=%22keep+storm+out+of+the+jar-with-dependencies%22">google search for &#8220;keep storm out of the jar-with-dependencies&#8221;</a>. In retrospect, I should have used the <a href="http://maven.apache.org/plugins/maven-shade-plugin/">maven shade plugin</a> instead, since it plays better with certain frameworks like Spring. Not a big deal, but the <del>cat</del> drunken bunny is out of the bag and on a love mission.</p>
+
+<p>I&#8217;ll admit that I&#8217;m in no way perfect in this respect. But I strive toward that goal and believe that all serious developers should as well.</p>
+
+<p>Let&#8217;s keep the drunken bunnies at bay. ;)</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2013/04/08/storm-at-nyc-star-big-data-tech-day/">Storm at NYC* Big Data Tech Day</a></h1>
     
     
@@ -511,6 +565,10 @@
       </li>
     
       <li class="post">
+        <a href="/blog/2013/05/01/why-sample-code-matters/">Why Sample Code Matters</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/04/08/storm-at-nyc-star-big-data-tech-day/">Storm at NYC* Big Data Tech Day</a>
       </li>
     
@@ -528,16 +586,20 @@
   <h1>Categories</h1>
   <ul id="categories">
     <li class='category'><a href='/blog/categories/big-data/'>big data (1)</a></li>
+<li class='category'><a href='/blog/categories/bugs/'>bugs (1)</a></li>
+<li class='category'><a href='/blog/categories/bunnies/'>bunnies (1)</a></li>
 <li class='category'><a href='/blog/categories/cassandra/'>cassandra (2)</a></li>
+<li class='category'><a href='/blog/categories/design/'>design (1)</a></li>
 <li class='category'><a href='/blog/categories/elastic-search/'>elastic search (1)</a></li>
 <li class='category'><a href='/blog/categories/health-market-science/'>health market science (1)</a></li>
 <li class='category'><a href='/blog/categories/kafka/'>kafka (1)</a></li>
 <li class='category'><a href='/blog/categories/mavericks/'>mavericks (1)</a></li>
 <li class='category'><a href='/blog/categories/osx/'>osx (1)</a></li>
 <li class='category'><a href='/blog/categories/philadelphia/'>philadelphia (1)</a></li>
+<li class='category'><a href='/blog/categories/programming/'>programming (1)</a></li>
 <li class='category'><a href='/blog/categories/ruby/'>ruby (1)</a></li>
 <li class='category'><a href='/blog/categories/rvm/'>rvm (1)</a></li>
-<li class='category'><a href='/blog/categories/storm/'>storm (3)</a></li>
+<li class='category'><a href='/blog/categories/storm/'>storm (4)</a></li>
 <li class='category'><a href='/blog/categories/technotes/'>technotes (1)</a></li>
 
   </ul>
