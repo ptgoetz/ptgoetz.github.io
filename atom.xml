@@ -4,7 +4,7 @@
   <title><![CDATA[P. Taylor Goetz]]></title>
   <link href="http://ptgoetz.github.io/atom.xml" rel="self"/>
   <link href="http://ptgoetz.github.io/"/>
-  <updated>2013-11-26T18:59:04-05:00</updated>
+  <updated>2013-11-26T19:04:08-05:00</updated>
   <id>http://ptgoetz.github.io/</id>
   <author>
     <name><![CDATA[P. Taylor Goetz]]></name>
@@ -217,46 +217,6 @@
 
 
 <p>Hopefully this will save some future storm contributors some time Googling cryptic errors.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Why Sample Code Matters]]></title>
-    <link href="http://ptgoetz.github.io/blog/2013/05/01/why-sample-code-matters/"/>
-    <updated>2013-05-01T15:52:00-04:00</updated>
-    <id>http://ptgoetz.github.io/blog/2013/05/01/why-sample-code-matters</id>
-    <content type="html"><![CDATA[<p>Whenever you write code samples for an API or library &#8211; or even a blog post &#8211; you should treat it as though you are writing the production guidance system for the space shuttle. Okay, that may be a little extreme, but you should at least make your best effort to ensure the code is error free and follows best practices. Why? Any bugs, vulnerabilities, anti-patterns, or cruft of any kind <strong><em>will replicate like drunken bunnies.</em></strong></p>
-
-<p><img src="http://ptgoetz.github.io/images/lots-of-bunnies.gif" title="Can't hold their liquor." alt="Bunnies" /></p>
-
-<p>In a blog post titled <a href="http://www.viva64.com/en/b/0199/">Why Windows 8 drivers are buggy</a> Andrey Karpov discusses what he found when performing static analysis on Windows 8 driver examples published by Microsoft. In short, those examples aren&#8217;t exactly stellar. But they&#8217;re just examples and aren&#8217;t that important, right? I beg to differ.</p>
-
-<p>In my opinion, the salient point of the article is best summarized in the following paragraph (emphasis mine):</p>
-
-<blockquote><p>&#8220;<del>Bugs in samples are not that critical as bugs in real-life software.</del> Nevertheless, bugs can migrate from samples to real-life projects and cause developers a lot of troubles. Even within the Windows 8 Driver Samples pack we found identical bugs. The reason is obvious: copying-and-pasting a code fragment from a nearby sample. In the same way these errors will get into real-life drivers.&#8221;</p></blockquote>
-
-<p>In fact, I would rearrange that first sentence to read: <em>&#8220;Bugs in samples will become critical bugs in real-life software.&#8221;</em></p>
-
-<p>The evils of <em>copying-and-pasting</em> aside, the truth is that developers reading your sample code will likely (perhaps blindly) trust that a given example is the right way to do things. Like it or not, when writing examples you are acting as a teacher and can&#8217;t make any assumptions about your pupils.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Storm is not a Workflow Engine/ESB/Hadoop replacement]]></title>
-    <link href="http://ptgoetz.github.io/blog/2013/04/30/storm-is-not-a-workflow-engine-or-esb/"/>
-    <updated>2013-04-30T22:38:00-04:00</updated>
-    <id>http://ptgoetz.github.io/blog/2013/04/30/storm-is-not-a-workflow-engine-or-esb</id>
-    <content type="html"><![CDATA[<p>I have come across a lot people at work, conferences and on the <a href="">Storm mailing list</a> who tend toward comparing Storm to <a href="http://en.wikipedia.org/wiki/Workflow_engine">workflow engines</a> and <a href="http://en.wikipedia.org/wiki/Enterprise_service_bus">ESB</a>s.</p>
-
-<p>In both cases such a comparison is invalid, and comparable to comparing a wrench to a hammer. Yes, you can probably drive a nail with a wrench in a pinch, but the results will be far from optimal or efficient. You&#8217;re much better off using the right tool for the job.</p>
-
-<p>At first glance, Storm has several similarities with Workflow Engines, ESBs, and Map-Reduce frameworks: It has primitives that allow you to define conditional flows, filtering, and map-reduce-type operations. But those similarities are much like those that apply to the hammer/wrench analogy.</p>
-
-<p>Instead of thinking of storm as a replacement for these technologies, think of storm as a <em>complementary</em> technology.</p>
-
-<p>Storm <a href="http://engineering.twitter.com/2011/08/storm-is-coming-more-details-and-plans.html">began</a> (<a href="http://engineering.twitter.com/2013/01/improving-twitter-search-with-real-time.html">and is still used</a>) as a framework to perform analytics computations on twitter data streams.</p>
-
-<p>Think about that for a minute. Millions of twitter users are continually posting data (there&#8217;s a reason they call it the <a href="https://blog.twitter.com/2010/enabling-rush-innovation">firehose</a>). There is no beginning. There is no end. <em>It is a constant stream of data.</em></p>
 ]]></content>
   </entry>
   
