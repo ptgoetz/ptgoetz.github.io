@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: big data | P. Taylor Goetz]]></title>
-  <link href="http://ptgoetz.github.io/blog/categories/big-data/atom.xml" rel="self"/>
+  <title><![CDATA[Category: windows | P. Taylor Goetz]]></title>
+  <link href="http://ptgoetz.github.io/blog/categories/windows/atom.xml" rel="self"/>
   <link href="http://ptgoetz.github.io/"/>
   <updated>2013-12-18T23:42:54-05:00</updated>
   <id>http://ptgoetz.github.io/</id>
@@ -121,31 +121,6 @@
 </code></pre>
 
 <p>If you reload the Storm UI page, you should now see the "WordCount" topology listed and can click on the link to verify that the topology is processing data.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Storm at NYC* Big Data Tech Day]]></title>
-    <link href="http://ptgoetz.github.io/blog/2013/04/08/storm-at-nyc-star-big-data-tech-day/"/>
-    <updated>2013-04-08T22:42:00-04:00</updated>
-    <id>http://ptgoetz.github.io/blog/2013/04/08/storm-at-nyc-star-big-data-tech-day</id>
-    <content type="html"><![CDATA[<p>I recently had the opportunity to present at <a href="http://www.datastax.com/nycassandra2013/">NYC* Big Data Tech Day</a> with <a href="http://brianoneill.blogspot.com">Brian O'Neill</a> to speak about some of the work we've been doing at <a href="http://www.healthmarketscience.com">HMS</a>, developing our platform for real-time Master Data Management.</p>
-
-<p>Our approach leverages <a href="http://storm-project.net">Storm</a>, <a href="http://cassandra.apache.org">Cassandra</a>, <a href="http://kafka.apache.org">Kafka</a>, and <a href="http://www.elasticsearch.org">Elastic Search</a> to gather data from thousands of data sources, and meld them together in near real time, to produce a single high quality health care practitioner database.</p>
-
-<p>Our talk was titled "A Big Data Quadfecta: Cassandra, Storm, Elastic Search and Kafka" and should resonate with any beer enthusiasts!</p>
-
-<p>Slides and video below. Unfortunately the slides are not visible in the video, but you can hopefully follow along (somewhat) with the embedded slides.</p>
-
-<iframe width="560" height="315" src="http://www.youtube.com/embed/jBauMkzSgRQ" frameborder="0" allowfullscreen></iframe>
-
-
-
-
-<iframe src="http://www.slideshare.net/slideshow/embed_code/17516652" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe>
-
-
-
 ]]></content>
   </entry>
   

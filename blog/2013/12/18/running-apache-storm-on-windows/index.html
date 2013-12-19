@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: mavericks - P. Taylor Goetz</title>
+  <title>Running Apache Storm on Windows - P. Taylor Goetz</title>
   <meta name="author" content="P. Taylor Goetz">
 
   
-  <meta name="description" content="Category: mavericks">
+  <meta name="description" content="In the past, running Storm on Windows has been a challenge. While possible, it often involved hacking Storm&#8217;s source, hunting down (or building &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ptgoetz.github.ioblog/categories/mavericks">
+  <link rel="canonical" href="http://ptgoetz.github.io/blog/2013/12/18/running-apache-storm-on-windows">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="P. Taylor Goetz" type="application/atom+xml">
@@ -77,36 +77,195 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Mavericks</h1>
+    
+      <h1 class="entry-title">Running Apache Storm on Windows</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-18T17:12:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2013</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>In the past, running Storm on Windows has been a challenge. While possible, it often involved hacking Storm&#8217;s source, hunting down (or building from source) native dependencies, and mucking around with various ways to trick Windows into thinking it&#8217;s like UNIX/POSIX.</p>
 
-  
-  <h2>2013</h2>
+<p>That alienated a large number of potential adopters who stand to gain from integrating Storm into their big data strategy.</p>
 
-<article>
-  
-<h1><a href="/blog/2013/11/26/building-storm-on-osx-mavericks/">Building Storm On OSX 10.9 (Mavericks)</a></h1>
-<time datetime="2013-11-26T16:11:00-05:00" pubdate><span class='month'>Nov</span> <span class='day'>26</span> <span class='year'>2013</span></time>
+<p>Thanks in large part to contributions from Storm committer <a href="https://github.com/davidlao2k">David Lao</a>, as well as <a href="http://yahooeng.tumblr.com/post/64758709722/making-storm-fly-with-netty">contributions from Yahoo!</a>, the next release of Storm (0.9.1-incubating) will make life much easier for users who want or need to deploy Storm in an environment where Windows is necessary.</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/mavericks/'>mavericks</a>, <a class='category' href='/blog/categories/osx/'>osx</a>, <a class='category' href='/blog/categories/storm/'>storm</a></span>
-</footer>
+<p>Below I&#8217;ve listed the steps necessary to get storm up and running with a sample topology on Windows. It walks through the process of creating a single-node cluster (pseudo-cluster) and deploying a sample &#8220;Word Count&#8221; topology.</p>
 
+<p><img src="/images/storm_ui.png" alt="" /></p>
 
-</article>
+<h3>Install Java</h3>
 
+<p>Download and install a JDK (Storm works with both Oracle and OpenJDK 6/7). For this setup I used <a href="http://download.oracle.com/otn-pub/java/jdk/7u45-b18/jdk-7u45-windows-x64.exe">JDK 7 from Oracle</a>.</p>
+
+<p>I installed Java in:</p>
+
+<pre><code>C:\Java\jdk1.7.0_45\
+</code></pre>
+
+<h3>Install Python</h3>
+
+<p>To test the installation, we&#8217;ll be deploying the &#8220;word count&#8221; sample from the <a href="https://github.com/nathanmarz/storm-starter">storm-starter project</a> which uses a <a href="https://github.com/nathanmarz/storm/wiki/Multilang-protocol">multi-lang</a> bolt written in python. I used python 2.7.6 which can be downloaded <a href="http://www.python.org/download/">here</a>.</p>
+
+<p>I installed python in:</p>
+
+<pre><code>C:\Python27\
+</code></pre>
+
+<h3>Install and Run Zookeeper</h3>
+
+<p><a href="http://download.nextag.com/apache/zookeeper/zookeeper-3.3.6/">Download Apache Zookeeper 3.3.6</a> and extract it. Configure and run Zookeeper with the following commands:</p>
+
+<pre><code>&gt; cd zookeeper-3.3.6
+&gt; copy conf\zoo_sample.cfg conf\zoo.cfg
+&gt; .\bin\zkServer.cmd
+</code></pre>
+
+<h3>Install Storm</h3>
+
+<p>The changes that allow Storm to run seamlessly on Windows have not been officially released yet, but you can download a build with those changes incorporated <a href="https://dl.dropboxusercontent.com/s/iglqz73chkul1tu/storm-0.9.1-incubating-SNAPSHOT-12182013.zip">here</a>.</p>
+
+<p>(Source branch for that build can be found <a href="https://github.com/ptgoetz/incubator-storm/tree/windows-test">here</a>).</p>
+
+<p>Extract that file to the location of your choice. I chose <code>C:\</code>.</p>
+
+<h3>Configure Environment Variables</h3>
+
+<p>On Windows Storm requires the <code>STORM_HOME</code> and <code>JAVA_HOME</code> environment variables to be set, as well as some additions to the <code>PATH</code> variable:</p>
+
+<p><code>JAVA_HOME</code></p>
+
+<pre><code>C:\Java\jdk1.7.0_45\
+</code></pre>
+
+<p><code>STORM_HOME</code></p>
+
+<pre><code>C:\storm-0.9.1-incubating-SNAPSHOT-12182013\
+</code></pre>
+
+<p><code>PATH</code> Add:</p>
+
+<pre><code>%STORM_HOME%\bin;%JAVA_HOME%\bin;C:\Python27;C:\Python27\Lib\site-packages\;C:\Python27\Scripts\;
+</code></pre>
+
+<p><code>PATHEXT</code> Add:</p>
+
+<pre><code>.PY
+</code></pre>
+
+<h3>Start Nimbus, Supervisor, and Storm UI Daemons</h3>
+
+<p>For each deamon, open a separate command prompt.</p>
+
+<p><strong>Nimbus</strong></p>
+
+<pre><code>&gt; cd %STORM_HOME%
+&gt; storm nimbus
+</code></pre>
+
+<p><strong>Supervisor</strong></p>
+
+<pre><code>&gt; cd %STORM_HOME%
+&gt; storm supervisor
+</code></pre>
+
+<p><strong>Storm UI</strong></p>
+
+<pre><code>&gt; cd %STORM_HOME%
+&gt; storm ui
+</code></pre>
+
+<p>Verify that Storm is running by opening <a href="http://localhost:8080/">http://localhost:8080/</a> in a browser.</p>
+
+<h3>Deploy the &#8220;Word Count&#8221; Topology</h3>
+
+<p>Either build the <a href="https://github.com/nathanmarz/storm-starter">storm-starter</a> project from source, or <a href="https://dl.dropboxusercontent.com/s/kc933u6vz2crqkb/storm-starter-0.0.1-SNAPSHOT-jar-with-dependencies.jar">download a pre-built jar</a></p>
+
+<p>Deploy the Word Count topology to your local cluster with the <code>storm jar</code> command:</p>
+
+<pre><code>&gt; storm jar storm-starter-0.0.1-SNAPSHOT-jar-with-dependencies.jar storm.starter.WordCountTopology WordCount -c nimbus.host=localhost
+</code></pre>
+
+<p>If you reload the Storm UI page, you should now see the &#8220;WordCount&#8221; topology listed and can click on the link to verify that the topology is processing data.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">P. Taylor Goetz</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-18T17:12:00-05:00" pubdate data-updated="true">Dec 18<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/big-data/'>big data</a>, <a class='category' href='/blog/categories/storm/'>storm</a>, <a class='category' href='/blog/categories/windows/'>windows</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://ptgoetz.github.io/blog/2013/12/18/running-apache-storm-on-windows/" data-via="ptgoetz" data-counturl="http://ptgoetz.github.io/blog/2013/12/18/running-apache-storm-on-windows/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/11/26/building-storm-on-osx-mavericks/" title="Previous Post: Building Storm On OSX 10.9 (Mavericks)">&laquo; Building Storm On OSX 10.9 (Mavericks)</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -205,7 +364,10 @@
       var disqus_shortname = 'ptgoetzgithub';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ptgoetz.github.io/blog/2013/12/18/running-apache-storm-on-windows/';
+        var disqus_url = 'http://ptgoetz.github.io/blog/2013/12/18/running-apache-storm-on-windows/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
